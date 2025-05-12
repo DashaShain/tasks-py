@@ -1,11 +1,14 @@
-s = input("Введите строку: ")
-k = int(input("Введите k: "))
-result = ""
-i = 0
-while i < len(s):
-    part = s[i:i + 2 * k]
-    first_k = part[:k][::-1]
-    rest = part[k:]
-    result += first_k + rest
-    i += 2 * k
-print(result)
+input_string = input("Введите строку: ")
+segment_size = int(input("Введите k: "))
+transformed_string = ""
+current_position = 0
+
+while current_position < len(input_string):
+    current_block = input_string[current_position:current_position + 2 * segment_size]
+    reversed_part = current_block[:segment_size][::-1]
+
+    unchanged_part = current_block[segment_size:]
+    transformed_string += reversed_part + unchanged_part
+    current_position += 2 * segment_size
+
+print(transformed_string)
