@@ -1,15 +1,17 @@
-rowIndex = int(input("Введите индекс строки: "))
-row = [1]
+row_index = int(input("Введите индекс строки: "))
+current_row = [1]
+current_level = 0
 
-i = 0
-while i < rowIndex:
-    new_row = [1]
-    j = 1
-    while j < len(row):
-        new_row.append(row[j - 1] + row[j])
-        j += 1
-    new_row.append(1)
-    row = new_row
-    i += 1
+while current_level < row_index:
+    next_row = [1]
+    element_index = 1
 
-print(row)
+    while element_index < len(current_row):
+        sum_of_adjacent = current_row[element_index - 1] + current_row[element_index]
+        next_row.append(sum_of_adjacent)
+        element_index += 1
+    
+    next_row.append(1)
+    current_row = next_row
+    current_level += 1
+print(current_row)
