@@ -1,85 +1,59 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "cfdb6e72",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "class Athlete:\n",
-    "    def __init__(self, full_name, years_old, role):\n",
-    "        self.full_name = full_name\n",
-    "        self.years_old = years_old\n",
-    "        self.role = role\n",
-    "\n",
-    "    def __str__(self):\n",
-    "        return f\"ФИО: {self.full_name}\\nВозраст: {self.years_old}\\nАмплуа: {self.role}\"\n",
-    "\n",
-    "class Club:\n",
-    "    def __init__(self, club_title, head_coach):\n",
-    "        self.club_title = club_title\n",
-    "        self.head_coach = head_coach\n",
-    "        self.roster = []\n",
-    "\n",
-    "    def add_athlete(self, athlete):\n",
-    "        self.roster.append(athlete)\n",
-    "        print(f\"Атлет {athlete.full_name} добавлен в клуб {self.club_title}\")\n",
-    "\n",
-    "    def remove_athlete(self, athlete):\n",
-    "        if athlete in self.roster:\n",
-    "            self.roster.remove(athlete)\n",
-    "            print(f\"Атлет {athlete.full_name} удален из клуба {self.club_title}\")\n",
-    "        else:\n",
-    "            print(f\"Атлет {athlete.full_name} не найден в клубе {self.club_title}\")\n",
-    "\n",
-    "    def show_roster(self):\n",
-    "        print(f\"\\nКлуб: {self.club_title}\")\n",
-    "        print(f\"Главный тренер: {self.head_coach}\")\n",
-    "        print(\"Состав клуба:\")\n",
-    "        for athlete in self.roster:\n",
-    "            print(athlete)S\n",
-    "            print(\"-\" * 20)\n",
-    "\n",
-    "# Пример использования\n",
-    "if __name__ == \"__main__\":\n",
-    "    # Создаем атлетов\n",
-    "    athlete1 = Athlete(\"Иванов И.И.\", 25, \"Нападающий\")\n",
-    "    athlete2 = Athlete(\"Петров П.П.\", 30, \"Полузащитник\")\n",
-    "    athlete3 = Athlete(\"Сидоров С.С.\", 28, \"Защитник\")\n",
-    "\n",
-    "    # Создаем клубы\n",
-    "    club1 = Club(\"Алые\", \"Краснов А.\")\n",
-    "    club2 = Club(\"Лазурные\", \"Синёв С.\")\n",
-    "\n",
-    "    # Добавляем атлетов в клубы\n",
-    "    club1.add_athlete(athlete1)\n",
-    "    club1.add_athlete(athlete2)\n",
-    "    club2.add_athlete(athlete3)\n",
-    "\n",
-    "    # Показываем составы клубов\n",
-    "    club1.show_roster()\n",
-    "    club2.show_roster()\n",
-    "\n",
-    "    # Удаляем атлета из клуба\n",
-    "    club1.remove_athlete(athlete2)\n",
-    "\n",
-    "    # Показываем обновленный состав\n",
-    "    club1.show_roster()"
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "name": "python",
-   "version": "3.13.2"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+class Athlete:
+    def __init__(self, full_name, years_old, role):
+        self.full_name = full_name
+        self.years_old = years_old
+        self.role = role
+
+    def __str__(self):
+        return f"ФИО: {self.full_name}\nВозраст: {self.years_old}\nАмплуа: {self.role}"
+
+class Club:
+    def __init__(self, club_title, head_coach):
+        self.club_title = club_title
+        self.head_coach = head_coach
+        self.roster = []
+
+    def add_athlete(self, athlete):
+        self.roster.append(athlete)
+        print(f"Атлет {athlete.full_name} добавлен в клуб {self.club_title}")
+
+    def remove_athlete(self, athlete):
+        if athlete in self.roster:
+            self.roster.remove(athlete)
+            print(f"Атлет {athlete.full_name} удален из клуба {self.club_title}")
+        else:
+            print(f"Атлет {athlete.full_name} не найден в клубе {self.club_title}")
+
+    def show_roster(self):
+        print(f"\nКлуб: {self.club_title}")
+        print(f"Главный тренер: {self.head_coach}")
+        print("Состав клуба:")
+        for athlete in self.roster:
+            print(athlete)
+            print("-" * 20)
+
+# Пример использования
+if __name__ == "__main__":
+    # Создаем атлетов
+    athlete1 = Athlete("Иванов И.И.", 25, "Нападающий")
+    athlete2 = Athlete("Петров П.П.", 30, "Полузащитник")
+    athlete3 = Athlete("Сидоров С.С.", 28, "Защитник")
+
+    # Создаем клубы
+    club1 = Club("Алые", "Краснов А.")
+    club2 = Club("Лазурные", "Синёв С.")
+
+    # Добавляем атлетов в клубы
+    club1.add_athlete(athlete1)
+    club1.add_athlete(athlete2)
+    club2.add_athlete(athlete3)
+
+    # Показываем составы клубов
+    club1.show_roster()
+    club2.show_roster()
+
+    # Удаляем атлета из клуба
+    club1.remove_athlete(athlete2)
+
+    # Показываем обновленный состав
+    club1.show_roster()
